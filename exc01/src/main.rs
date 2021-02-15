@@ -74,10 +74,7 @@ fn write_file(output_path: String, v_object: Vec<Object>) -> Result<(), io::Erro
     // filtering v_object into vector of only valid Objects
     let v_valid_obj = v_object
         .into_iter()
-        .filter(|obj| {
-            println!("{:?} {:?}", obj, (obj.id % 2 == obj.crc) && (obj.message != 0));
-            (obj.id % 2 == obj.crc) && (obj.message != 0)
-        })
+        .filter(|obj| (obj.id % 2 == obj.crc) && (obj.message != 0))
         .collect::<Vec<Object>>();
 
     write!(file, "{}\n", v_object_len)?;
