@@ -1,9 +1,6 @@
 use std::{thread, time};
 
-use crate::model::ID;
-use crate::model::{Engine, SteeringWheel, Accelerometer};
 use crate::model::SensorInterface;
-use std::borrow::BorrowMut;
 
 /// Defines importance of particular sensor
 ///

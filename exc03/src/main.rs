@@ -1,7 +1,6 @@
 mod view;
 mod model;
 
-use std::{thread, time};
 use model::ID;
 use model::{Engine, SteeringWheel, Accelerometer, Tires};
 use model::SensorInterface;

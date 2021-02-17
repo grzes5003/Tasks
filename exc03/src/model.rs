@@ -2,13 +2,21 @@ use rand_distr::{Distribution, Weibull, Normal};
 use rand::prelude::*;
 use rand::thread_rng;
 
-
+/// Common trait used in every sensor below
+///
 pub trait SensorInterface {
+    /// Based on current sensor status returns String for logger
     fn read_status(&self) -> String;
+    /// If called, it simulates changes in sensor input.
+    /// Often some random distribution is used for this purpose.
     fn update(&mut self);
 }
 
+/// Simplification of some UUID system
+///
 pub struct ID(pub u8);
+
+//// Below all sensors are defined and implemented
 
 pub struct SteeringWheel {
     pub id: ID,
@@ -59,7 +67,6 @@ impl SensorInterface for Accelerometer {
 
     fn update(&mut self) {
         let normal = Normal::new(0.0, 2.0).unwrap();
-        let v = normal.sample(&mut rand::thread_rng());
         self.vehicle_acceleration.0 += normal.sample(&mut rand::thread_rng()) as i16;
         self.vehicle_acceleration.1 += normal.sample(&mut rand::thread_rng()) as i16;
         self.vehicle_acceleration.2 += normal.sample(&mut rand::thread_rng()) as i16;
