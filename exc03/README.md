@@ -25,3 +25,6 @@ Time 12.012701 | engine: rpm=2511 temp=92 | wheel_angle=2.3068268 | vehicle_acce
 Time 13.013759 | engine: rpm=2506 temp=87
 Time 14.014817 | engine: rpm=2503 temp=84
 ```
+
+## Running
+Type command `cargo run`
